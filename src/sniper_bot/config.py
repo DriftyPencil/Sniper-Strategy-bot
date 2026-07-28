@@ -56,6 +56,7 @@ class StrategyConfig:
     market_epics: list[str]
     resolution: str
     price_points: int
+    use_spread_filter: bool
     max_spread_points: float
     fast_ema: int
     slow_ema: int
@@ -65,12 +66,16 @@ class StrategyConfig:
     macd_fast: int
     macd_slow: int
     macd_signal: int
-    score_threshold: float
+    min_bull_score_long: float
+    min_bear_score_short: float
+    require_short_bear_dominance: bool
     min_risk_reward: float
     stop_atr_multiple: float
     target_multiples: list[float]
+    take_profit_allocations: list[float]
     broker_target_index: int
     default_size: float
+    starting_balance: float
 
 
 @dataclass(frozen=True)
@@ -100,6 +105,7 @@ def load_config() -> AppConfig:
             market_epics=_csv_env("MARKET_EPICS", ["CS.D.EURUSD.MINI.IP"]),
             resolution=os.getenv("RESOLUTION", "MINUTE_5"),
             price_points=int(os.getenv("PRICE_POINTS", "120")),
+            use_spread_filter=_bool_env("USE_SPREAD_FILTER", False),
             max_spread_points=float(os.getenv("MAX_SPREAD_POINTS", "2.5")),
             fast_ema=int(os.getenv("FAST_EMA", "9")),
             slow_ema=int(os.getenv("SLOW_EMA", "21")),
@@ -109,15 +115,22 @@ def load_config() -> AppConfig:
             macd_fast=int(os.getenv("MACD_FAST", "12")),
             macd_slow=int(os.getenv("MACD_SLOW", "26")),
             macd_signal=int(os.getenv("MACD_SIGNAL", "9")),
-            score_threshold=float(os.getenv("SCORE_THRESHOLD", "0")),
+            min_bull_score_long=float(os.getenv("MIN_BULL_SCORE_LONG", "60")),
+            min_bear_score_short=float(os.getenv("MIN_BEAR_SCORE_SHORT", "0")),
+            require_short_bear_dominance=_bool_env("REQUIRE_SHORT_BEAR_DOMINANCE", True),
             min_risk_reward=float(os.getenv("MIN_RISK_REWARD", "1.0")),
             stop_atr_multiple=float(os.getenv("STOP_ATR_MULTIPLE", "1.5")),
             target_multiples=[
                 float(item)
                 for item in _csv_env("TARGET_MULTIPLES", ["1", "2", "3", "4", "5"])
             ],
+            take_profit_allocations=[
+                float(item)
+                for item in _csv_env("TAKE_PROFIT_ALLOCATIONS", ["0.5", "0.25", "0.25"])
+            ],
             broker_target_index=int(os.getenv("BROKER_TARGET_INDEX", "2")),
-            default_size=float(os.getenv("DEFAULT_SIZE", "0.5")),
+            default_size=float(os.getenv("DEFAULT_SIZE", "10")),
+            starting_balance=float(os.getenv("BACKTEST_STARTING_BALANCE", "10000")),
         ),
         runtime=RuntimeConfig(
             dry_run=_bool_env("DRY_RUN", True),

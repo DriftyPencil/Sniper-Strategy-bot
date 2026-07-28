@@ -17,6 +17,9 @@ dev = [
 sniper-bot = "sniper_bot.runner:main"
 sniper-backtest = "sniper_bot.backtest:main"
 sniper-download-prices = "sniper_bot.download_prices:main"
+sniper-check-ig = "sniper_bot.check_ig:main"
+sniper-api = "sniper_bot.api:main"
+sniper-output = "sniper_bot.latest_output:main"
 
 [build-system]
 requires = ["setuptools>=68"]

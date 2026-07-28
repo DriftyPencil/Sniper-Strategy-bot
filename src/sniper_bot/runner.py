@@ -47,14 +47,14 @@ def run_cycle(client: IGClient, strategy: SniperStrategy, config: AppConfig) -> 
                 continue
             if config.runtime.dry_run:
                 LOGGER.info(
-                    "%s dry-run order direction=%s setup=%s size=%s stop=%s limit=%s targets=%s",
+                    "%s dry-run spread-bet direction=%s stake_per_point=%s entry_ref=%s stop_level=%s tp_plan=%s targets=%s",
                     epic,
                     signal.direction,
-                    signal.setup_type,
                     signal.size,
-                    signal.stop_distance,
-                    signal.limit_distance,
-                    signal.target_distances,
+                    signal.entry_price,
+                    signal.stop_price,
+                    config.strategy.take_profit_allocations,
+                    signal.target_prices,
                 )
                 continue
 
@@ -62,8 +62,7 @@ def run_cycle(client: IGClient, strategy: SniperStrategy, config: AppConfig) -> 
                 epic=epic,
                 direction=signal.direction.value,
                 size=signal.size,
-                stop_distance=signal.stop_distance,
-                limit_distance=signal.limit_distance,
+                stop_level=signal.stop_price,
             )
             LOGGER.info("%s order submitted response=%s", epic, response)
         except Exception:

@@ -4,6 +4,7 @@ import unittest
 from datetime import datetime, timedelta, timezone
 
 from sniper_bot.config import StrategyConfig
+from sniper_bot.khansaab_indicator import calculate_khansaab_bars
 from sniper_bot.market import Candle
 from sniper_bot.strategy import Direction, SniperStrategy
 
@@ -13,6 +14,7 @@ def config() -> StrategyConfig:
         market_epics=["TEST"],
         resolution="MINUTE_5",
         price_points=80,
+        use_spread_filter=True,
         max_spread_points=0.0004,
         fast_ema=9,
         slow_ema=21,
@@ -22,12 +24,16 @@ def config() -> StrategyConfig:
         macd_fast=12,
         macd_slow=26,
         macd_signal=9,
-        score_threshold=0,
+        min_bull_score_long=60,
+        min_bear_score_short=0,
+        require_short_bear_dominance=True,
         min_risk_reward=1.0,
         stop_atr_multiple=1.5,
         target_multiples=[1, 2, 3, 4, 5],
+        take_profit_allocations=[0.5, 0.25, 0.25],
         broker_target_index=2,
-        default_size=0.5,
+        default_size=10,
+        starting_balance=10000,
     )
 
 
@@ -44,11 +50,17 @@ class StrategyTests(unittest.TestCase):
         self.assertEqual(signal.direction, Direction.HOLD)
 
     def test_holds_when_spread_is_too_wide(self) -> None:
-        candles = [candle(i, 1.10 + i * 0.0001) for i in range(40)]
-        candles[-1] = candle(40, 1.105, spread=0.001)
+        candles = [candle(i, 1.10 + i * 0.0001) for i in range(60)]
+        candles[-1] = candle(60, 1.105, spread=0.001)
         signal = SniperStrategy(config()).evaluate(candles)
         self.assertEqual(signal.direction, Direction.HOLD)
         self.assertIn("spread", signal.reason)
+
+    def test_indicator_status_uses_trade_direction(self) -> None:
+        values = [1.20 - i * 0.0005 for i in range(55)] + [1.18 + i * 0.001 for i in range(10)]
+        bars = calculate_khansaab_bars([candle(i, value) for i, value in enumerate(values)], config())
+        statuses = [bar.status for bar in bars]
+        self.assertIn("BUY", statuses)
 
 
 if __name__ == "__main__":

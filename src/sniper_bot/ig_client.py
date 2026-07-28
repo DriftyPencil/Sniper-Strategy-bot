@@ -10,6 +10,22 @@ from sniper_bot.config import IGConfig
 from sniper_bot.market import Candle
 
 
+class IGApiError(RuntimeError):
+    def __init__(self, status_code: int, error_code: str | None, detail: str) -> None:
+        self.status_code = status_code
+        self.error_code = error_code
+        self.detail = detail
+        hint = _hint_for_error(error_code)
+        message = f"IG API error {status_code}"
+        if error_code:
+            message += f" ({error_code})"
+        if hint:
+            message += f": {hint}"
+        else:
+            message += f": {detail}"
+        super().__init__(message)
+
+
 class IGClient:
     def __init__(self, config: IGConfig, timeout: int = 20) -> None:
         self.config = config
@@ -47,7 +63,12 @@ class IGClient:
             headers=self._headers(version="1"),
             timeout=self.timeout,
         )
-        self._raise_for_status(response)
+        try:
+            self._raise_for_status(response)
+        except IGApiError as error:
+            if error.error_code == "error.switch.accountId-must-be-different":
+                return
+            raise
         if "X-SECURITY-TOKEN" in response.headers:
             self.session.headers.update({"X-SECURITY-TOKEN": response.headers["X-SECURITY-TOKEN"]})
 
@@ -55,7 +76,7 @@ class IGClient:
         self._ensure_login()
         response = self.session.get(
             f"{self.config.base_url}/prices/{epic}/{resolution}/{points}",
-            headers=self._headers(version="3"),
+            headers=self._headers(version="2"),
             timeout=self.timeout,
         )
         self._raise_for_status(response)
@@ -79,8 +100,10 @@ class IGClient:
         epic: str,
         direction: str,
         size: float,
-        stop_distance: float,
-        limit_distance: float,
+        stop_distance: float | None = None,
+        limit_distance: float | None = None,
+        stop_level: float | None = None,
+        limit_level: float | None = None,
         currency_code: str = "GBP",
     ) -> dict[str, Any]:
         self._ensure_login()
@@ -93,10 +116,12 @@ class IGClient:
             "forceOpen": True,
             "guaranteedStop": False,
             "level": None,
-            "limitDistance": round(limit_distance, 5),
+            "limitDistance": round(limit_distance, 5) if limit_distance is not None else None,
+            "limitLevel": round(limit_level, 5) if limit_level is not None else None,
             "orderType": "MARKET",
             "size": size,
-            "stopDistance": round(stop_distance, 5),
+            "stopDistance": round(stop_distance, 5) if stop_distance is not None else None,
+            "stopLevel": round(stop_level, 5) if stop_level is not None else None,
             "timeInForce": "FILL_OR_KILL",
             "trailingStop": False,
         }
@@ -125,7 +150,14 @@ class IGClient:
         if response.ok:
             return
         detail = response.text[:500]
-        raise RuntimeError(f"IG API error {response.status_code}: {detail}")
+        error_code = None
+        try:
+            body = response.json()
+            if isinstance(body, dict):
+                error_code = body.get("errorCode")
+        except ValueError:
+            pass
+        raise IGApiError(response.status_code, error_code, detail)
 
     def _has_ohlc(self, item: dict[str, Any]) -> bool:
         for key in ("openPrice", "highPrice", "lowPrice", "closePrice"):
@@ -164,3 +196,21 @@ class IGClient:
         if parsed.tzinfo is None:
             return parsed.replace(tzinfo=timezone.utc)
         return parsed
+
+
+def _hint_for_error(error_code: str | None) -> str:
+    hints = {
+        "error.security.api-key-invalid": (
+            "IG rejected the API key. Check DEMO vs LIVE, copy the key value not the key name, "
+            "and revoke/regenerate the key if it has been exposed."
+        ),
+        "error.security.api-key-disabled": "This API key is disabled in My IG > Settings > API keys.",
+        "error.security.api-key-revoked": "This API key has been revoked. Generate a new active key.",
+        "error.security.api-key-restricted": "This API key is restricted for the requested endpoint/account.",
+        "error.security.client-token-missing": "Login did not return a CST token. Retry after checking credentials.",
+        "error.security.account-token-missing": "Login did not return an account token. Retry after checking credentials.",
+        "error.public-api.failure.encryption.required": "IG requires encrypted password login for this account.",
+    }
+    if not error_code:
+        return ""
+    return hints.get(error_code, "")
