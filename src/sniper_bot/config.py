@@ -73,8 +73,11 @@ class StrategyConfig:
     stop_atr_multiple: float
     target_multiples: list[float]
     take_profit_allocations: list[float]
+    break_even_after_tp1: bool
     broker_target_index: int
     default_size: float
+    spread_bet_price_decimals: int
+    spread_bet_point_size: float
     starting_balance: float
 
 
@@ -128,8 +131,11 @@ def load_config() -> AppConfig:
                 float(item)
                 for item in _csv_env("TAKE_PROFIT_ALLOCATIONS", ["0.5", "0.25", "0.25"])
             ],
+            break_even_after_tp1=_bool_env("BREAK_EVEN_AFTER_TP1", False),
             broker_target_index=int(os.getenv("BROKER_TARGET_INDEX", "2")),
             default_size=float(os.getenv("DEFAULT_SIZE", "10")),
+            spread_bet_price_decimals=int(os.getenv("SPREAD_BET_PRICE_DECIMALS", "1")),
+            spread_bet_point_size=float(os.getenv("SPREAD_BET_POINT_SIZE", "0.1")),
             starting_balance=float(os.getenv("BACKTEST_STARTING_BALANCE", "10000")),
         ),
         runtime=RuntimeConfig(

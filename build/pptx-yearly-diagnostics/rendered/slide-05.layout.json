@@ -1,0 +1,279 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/kpmu6s",
+    "id": "kpmu6s",
+    "slide": 5,
+    "layoutId": "938b19da-dfbf-417a-802d-4eea3b3318f2",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "11f8e478-6c97-413b-bb14-6ed6fe120ef1",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#FFFFFF",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "+mn-lt"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "938b19da-dfbf-417a-802d-4eea3b3318f2",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "11f8e478-6c97-413b-bb14-6ed6fe120ef1",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "11f8e478-6c97-413b-bb14-6ed6fe120ef1",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/kf2t0zul",
+      "id": "1",
+      "bbox": [
+        72,
+        50,
+        960,
+        50
+      ],
+      "geometry": "rect",
+      "text": "Most training exits are still stop-led",
+      "textPreview": "Most training exits are still stop-led",
+      "resolvedFontSize": 39,
+      "resolvedTextStyle": {
+        "fontSize": 39,
+        "typeface": "+mn-lt",
+        "color": "#000000",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Most training exits are still stop-led"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Most training exits are still stop-led",
+          "resolvedTextStyle": {
+            "fontSize": 39,
+            "color": "#000000",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Most training exits are still stop-led",
+              "fontSize": 39,
+              "color": "#000000",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/jetc7ud0",
+      "id": "2",
+      "bbox": [
+        72,
+        108,
+        1000,
+        36
+      ],
+      "geometry": "rect",
+      "text": "The failure problem is not just cosmetic labelling: nearly half of all training trades stop before TP1.",
+      "textPreview": "The failure problem is not just cosmetic labelling: nearly half of all training trades stop before TP1.",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "fontSize": 18,
+        "typeface": "+mn-lt",
+        "color": "#555B64",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "The failure problem is not just cosmetic labelling: nearly half of all training trades stop before TP1."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "The failure problem is not just cosmetic labelling: nearly half of all training trades stop before TP1.",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "color": "#555B64",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "The failure problem is not just cosmetic labelling: nearly half of all training trades stop before TP1.",
+              "fontSize": 18,
+              "color": "#555B64",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "chart",
+      "scope": "slide",
+      "aid": "ch/u1k76p8n",
+      "id": "3",
+      "bbox": [
+        72,
+        170,
+        550,
+        390
+      ],
+      "chartType": "bar"
+    },
+    {
+      "order": 4,
+      "kind": "chart",
+      "scope": "slide",
+      "aid": "ch/psv6l47a",
+      "id": "4",
+      "bbox": [
+        690,
+        170,
+        480,
+        390
+      ],
+      "chartType": "bar"
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8jmd4zuh",
+      "id": "5",
+      "bbox": [
+        72,
+        620,
+        1040,
+        32
+      ],
+      "geometry": "rect",
+      "text": "SL exits: 65.1% · SL before TP1: 46.3% · TP3 complete: 22.1%",
+      "textPreview": "SL exits: 65.1% · SL before TP1: 46.3% · TP3 complete: 22.1%",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "+mn-lt",
+        "color": "#000000",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "SL exits: 65.1% · SL before TP1: 46.3% · TP3 complete: 22.1%"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "SL exits: 65.1% · SL before TP1: 46.3% · TP3 complete: 22.1%",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "color": "#000000",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "SL exits: 65.1% · SL before TP1: 46.3% · TP3 complete: 22.1%",
+              "fontSize": 22,
+              "color": "#000000",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

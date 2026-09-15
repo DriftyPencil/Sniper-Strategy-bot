@@ -31,6 +31,7 @@ class Signal:
     status: str = "WAIT"
     trend_strength: str = "WEAK"
     setup_type: str = "NONE"
+    point_size: float = 1.0
 
 
 class SniperStrategy:
@@ -46,21 +47,27 @@ class SniperStrategy:
         if self.config.use_spread_filter and latest.spread > self.config.max_spread_points:
             return Signal(Direction.HOLD, f"spread {latest.spread:.5f} above limit")
 
-        bars = calculate_khansaab_bars(candles, self.config)
+        rsi5m_values = None
+        if rsi_5m_value is not None:
+            rsi5m_values = [rsi_5m_value] * len(candles)
+        bars = calculate_khansaab_bars(candles, self.config, rsi5m_values)
         if not bars:
             return Signal(Direction.HOLD, "indicators not ready")
         bar = bars[-1]
 
         if not bar.trigger_buy and not bar.trigger_sell:
             retest_text = " retest" if bar.is_retest else ""
-            target_distances = tuple(abs(target - bar.entry_price) for target in bar.targets)
+            entry_price = self._round_level(bar.entry_price)
+            stop_price = self._round_level(bar.stop_price)
+            target_prices = tuple(self._round_level(target) for target in bar.targets)
+            target_distances = tuple(abs(target - entry_price) for target in target_prices)
             return Signal(
                 Direction.HOLD,
                 f"wait{retest_text}, bull_score={bar.bull_score:.0f}, bear_score={bar.bear_score:.0f}, bias={bar.bias}",
                 target_distances=target_distances,
-                entry_price=bar.entry_price,
-                stop_price=bar.stop_price,
-                target_prices=bar.targets,
+                entry_price=entry_price,
+                stop_price=stop_price,
+                target_prices=target_prices,
                 bull_score=bar.bull_score,
                 bear_score=bar.bear_score,
                 bias=bar.bias,
@@ -69,8 +76,11 @@ class SniperStrategy:
                 setup_type="RETEST" if bar.is_retest else "WAIT",
             )
 
-        risk = abs(bar.entry_price - bar.stop_price)
-        target_distances = tuple(abs(target - bar.entry_price) for target in bar.targets)
+        entry_price = self._round_level(bar.entry_price)
+        stop_price = self._round_level(bar.stop_price)
+        target_prices = tuple(self._round_level(target) for target in bar.targets)
+        risk = abs(entry_price - stop_price)
+        target_distances = tuple(abs(target - entry_price) for target in target_prices)
         limit_distance = self._broker_limit_distance(target_distances)
 
         if bar.trigger_buy:
@@ -78,9 +88,9 @@ class SniperStrategy:
                 return Signal(
                     Direction.HOLD,
                     f"BUY blocked: bull_score={bar.bull_score:.0f} must be > {self.config.min_bull_score_long:.0f}",
-                    entry_price=bar.entry_price,
-                    stop_price=bar.stop_price,
-                    target_prices=bar.targets,
+                    entry_price=entry_price,
+                    stop_price=stop_price,
+                    target_prices=target_prices,
                     bull_score=bar.bull_score,
                     bear_score=bar.bear_score,
                     bias=bar.bias,
@@ -95,15 +105,16 @@ class SniperStrategy:
                 risk,
                 limit_distance,
                 target_distances,
-                bar.entry_price,
-                bar.stop_price,
-                bar.targets,
+                entry_price,
+                stop_price,
+                target_prices,
                 bar.bull_score,
                 bar.bear_score,
                 bar.bias,
                 bar.status,
                 bar.trend_strength,
                 "SIGNAL",
+                self.config.spread_bet_point_size,
             )
 
         if bar.trigger_sell:
@@ -113,9 +124,9 @@ class SniperStrategy:
                 return Signal(
                     Direction.HOLD,
                     f"SELL blocked: bear_score={bar.bear_score:.0f}, bull_score={bar.bull_score:.0f}",
-                    entry_price=bar.entry_price,
-                    stop_price=bar.stop_price,
-                    target_prices=bar.targets,
+                    entry_price=entry_price,
+                    stop_price=stop_price,
+                    target_prices=target_prices,
                     bull_score=bar.bull_score,
                     bear_score=bar.bear_score,
                     bias=bar.bias,
@@ -130,15 +141,16 @@ class SniperStrategy:
                 risk,
                 limit_distance,
                 target_distances,
-                bar.entry_price,
-                bar.stop_price,
-                bar.targets,
+                entry_price,
+                stop_price,
+                target_prices,
                 bar.bull_score,
                 bar.bear_score,
                 bar.bias,
                 bar.status,
                 bar.trend_strength,
                 "SIGNAL",
+                self.config.spread_bet_point_size,
             )
 
         return Signal(
@@ -156,3 +168,6 @@ class SniperStrategy:
             return 0
         index = max(1, min(self.config.broker_target_index, len(target_distances))) - 1
         return target_distances[index]
+
+    def _round_level(self, value: float) -> float:
+        return round(value, self.config.spread_bet_price_decimals)

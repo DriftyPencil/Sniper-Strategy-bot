@@ -1,0 +1,265 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/fs9psl",
+    "id": "fs9psl",
+    "slide": 4,
+    "layoutId": "938b19da-dfbf-417a-802d-4eea3b3318f2",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "11f8e478-6c97-413b-bb14-6ed6fe120ef1",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#FFFFFF",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "+mn-lt"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "938b19da-dfbf-417a-802d-4eea3b3318f2",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "11f8e478-6c97-413b-bb14-6ed6fe120ef1",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "11f8e478-6c97-413b-bb14-6ed6fe120ef1",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/pgrm1gvq",
+      "id": "1",
+      "bbox": [
+        72,
+        50,
+        920,
+        50
+      ],
+      "geometry": "rect",
+      "text": "Training equity decays through the year",
+      "textPreview": "Training equity decays through the year",
+      "resolvedFontSize": 39,
+      "resolvedTextStyle": {
+        "fontSize": 39,
+        "typeface": "+mn-lt",
+        "color": "#000000",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Training equity decays through the year"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Training equity decays through the year",
+          "resolvedTextStyle": {
+            "fontSize": 39,
+            "color": "#000000",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Training equity decays through the year",
+              "fontSize": 39,
+              "color": "#000000",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/2t0n6lwz",
+      "id": "2",
+      "bbox": [
+        72,
+        108,
+        900,
+        36
+      ],
+      "geometry": "rect",
+      "text": "The cumulative line shows repeated drawdown regimes rather than one isolated failure.",
+      "textPreview": "The cumulative line shows repeated drawdown regimes rather than one isolated failure.",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "fontSize": 18,
+        "typeface": "+mn-lt",
+        "color": "#555B64",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "The cumulative line shows repeated drawdown regimes rather than one isolated failure."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "The cumulative line shows repeated drawdown regimes rather than one isolated failure.",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "color": "#555B64",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "The cumulative line shows repeated drawdown regimes rather than one isolated failure.",
+              "fontSize": 18,
+              "color": "#555B64",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "chart",
+      "scope": "slide",
+      "aid": "ch/3elsfixg",
+      "id": "3",
+      "bbox": [
+        76,
+        165,
+        1100,
+        410
+      ],
+      "chartType": "line"
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/cji5cveh",
+      "id": "4",
+      "bbox": [
+        72,
+        620,
+        1020,
+        34
+      ],
+      "geometry": "rect",
+      "text": "Training net: -£25,620 · max drawdown: £56,015",
+      "textPreview": "Training net: -£25,620 · max drawdown: £56,015",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "+mn-lt",
+        "color": "#000000",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Training net: -£25,620 · max drawdown: £56,015"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Training net: -£25,620 · max drawdown: £56,015",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "color": "#000000",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Training net: -£25,620 · max drawdown: £56,015",
+              "fontSize": 22,
+              "color": "#000000",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

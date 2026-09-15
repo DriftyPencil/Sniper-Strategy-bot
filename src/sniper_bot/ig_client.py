@@ -84,6 +84,18 @@ class IGClient:
         candles = [self._parse_price(item) for item in prices if self._has_ohlc(item)]
         return candles
 
+    def historical_prices_range(self, epic: str, resolution: str, start: datetime, end: datetime) -> list[Candle]:
+        self._ensure_login()
+        response = self.session.get(
+            f"{self.config.base_url}/prices/{epic}/{resolution}",
+            params={"startdate": _ig_time(start), "enddate": _ig_time(end)},
+            headers=self._headers(version="1"),
+            timeout=self.timeout,
+        )
+        self._raise_for_status(response)
+        prices = response.json().get("prices", [])
+        return [self._parse_price(item) for item in prices if self._has_ohlc(item)]
+
     def open_positions(self) -> list[dict[str, Any]]:
         self._ensure_login()
         response = self.session.get(
@@ -214,3 +226,9 @@ def _hint_for_error(error_code: str | None) -> str:
     if not error_code:
         return ""
     return hints.get(error_code, "")
+
+
+def _ig_time(value: datetime) -> str:
+    if value.tzinfo is not None:
+        value = value.astimezone(timezone.utc).replace(tzinfo=None)
+    return value.strftime("%Y:%m:%d-%H:%M:%S")

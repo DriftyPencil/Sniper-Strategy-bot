@@ -1,0 +1,456 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/0cxd5o",
+    "id": "0cxd5o",
+    "slide": 1,
+    "layoutId": "938b19da-dfbf-417a-802d-4eea3b3318f2",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "11f8e478-6c97-413b-bb14-6ed6fe120ef1",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#FFFFFF",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "+mn-lt"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "938b19da-dfbf-417a-802d-4eea3b3318f2",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "11f8e478-6c97-413b-bb14-6ed6fe120ef1",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "11f8e478-6c97-413b-bb14-6ed6fe120ef1",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/dobyto7a",
+      "id": "1",
+      "bbox": [
+        72,
+        92,
+        680,
+        74
+      ],
+      "geometry": "rect",
+      "text": "USD/JPY 2025",
+      "textPreview": "USD/JPY 2025",
+      "resolvedFontSize": 58,
+      "resolvedTextStyle": {
+        "fontSize": 58,
+        "typeface": "+mn-lt",
+        "color": "#000000",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "USD/JPY 2025"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "USD/JPY 2025",
+          "resolvedTextStyle": {
+            "fontSize": 58,
+            "color": "#000000",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "USD/JPY 2025",
+              "fontSize": 58,
+              "color": "#000000",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ql0fy98z",
+      "id": "2",
+      "bbox": [
+        72,
+        168,
+        720,
+        46
+      ],
+      "geometry": "rect",
+      "text": "KhanSaab Sniper training diagnostics",
+      "textPreview": "KhanSaab Sniper training diagnostics",
+      "resolvedFontSize": 30,
+      "resolvedTextStyle": {
+        "fontSize": 30,
+        "typeface": "+mn-lt",
+        "color": "#000000",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "KhanSaab Sniper training diagnostics"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "KhanSaab Sniper training diagnostics",
+          "resolvedTextStyle": {
+            "fontSize": 30,
+            "color": "#000000",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "KhanSaab Sniper training diagnostics",
+              "fontSize": 30,
+              "color": "#000000",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/bmtwrep4",
+      "id": "3",
+      "bbox": [
+        72,
+        246,
+        760,
+        1
+      ],
+      "geometry": "rect",
+      "fillColor": "#B8BCC4",
+      "lineColor": "#B8BCC4",
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0r2x43q1",
+      "id": "4",
+      "bbox": [
+        72,
+        274,
+        880,
+        36
+      ],
+      "geometry": "rect",
+      "text": "Chronological 80/20 split · 5m candles · entries 09:00-19:00 UK · £10/point",
+      "textPreview": "Chronological 80/20 split · 5m candles · entries 09:00-19:00 UK · £10/point",
+      "resolvedFontSize": 19,
+      "resolvedTextStyle": {
+        "fontSize": 19,
+        "typeface": "+mn-lt",
+        "color": "#555B64",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Chronological 80/20 split · 5m candles · entries 09:00-19:00 UK · £10/point"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Chronological 80/20 split · 5m candles · entries 09:00-19:00 UK · £10/point",
+          "resolvedTextStyle": {
+            "fontSize": 19,
+            "color": "#555B64",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Chronological 80/20 split · 5m candles · entries 09:00-19:00 UK · £10/point",
+              "fontSize": 19,
+              "color": "#555B64",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/lsbyx87m",
+      "id": "5",
+      "bbox": [
+        72,
+        388,
+        900,
+        110
+      ],
+      "geometry": "rect",
+      "text": "Full-year data changed the conclusion: the short early-year sample was not representative.",
+      "textPreview": "Full-year data changed the conclusion: the short early-year sample was not representative.",
+      "resolvedFontSize": 34,
+      "resolvedTextStyle": {
+        "fontSize": 34,
+        "typeface": "+mn-lt",
+        "color": "#000000",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Full-year data changed the conclusion: the short"
+          },
+          {
+            "index": 2,
+            "text": "early-year sample was not representative."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Full-year data changed the conclusion: the short early-year sample was not representative.",
+          "resolvedTextStyle": {
+            "fontSize": 34,
+            "color": "#000000",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Full-year data changed the conclusion: the short early-year sample was not representative.",
+              "fontSize": 34,
+              "color": "#000000",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ypkf2t8v",
+      "id": "6",
+      "bbox": [
+        72,
+        518,
+        820,
+        56
+      ],
+      "geometry": "rect",
+      "text": "The training window loses heavily, and the final 20% deteriorates further. This deck focuses on diagnosing why.",
+      "textPreview": "The training window loses heavily, and the final 20% deteriorates further. This deck focuses on diagnosing why.",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "+mn-lt",
+        "color": "#555B64",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "The training window loses heavily, and the final 20% deteriorates further. This deck"
+          },
+          {
+            "index": 2,
+            "text": "focuses on diagnosing why."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "The training window loses heavily, and the final 20% deteriorates further. This deck focuses on diagnosing why.",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "color": "#555B64",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "The training window loses heavily, and the final 20% deteriorates further. This deck focuses on diagnosing why.",
+              "fontSize": 20,
+              "color": "#555B64",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/zqtgvypg",
+      "id": "7",
+      "bbox": [
+        950,
+        640,
+        230,
+        28
+      ],
+      "geometry": "rect",
+      "text": "2025 full-year diagnostic deck",
+      "textPreview": "2025 full-year diagnostic deck",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "+mn-lt",
+        "color": "#555B64",
+        "alignment": "right",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "2025 full-year diagnostic deck"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "2025 full-year diagnostic deck",
+          "resolvedTextStyle": {
+            "fontSize": 15,
+            "color": "#555B64",
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "2025 full-year diagnostic deck",
+              "fontSize": 15,
+              "color": "#555B64",
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

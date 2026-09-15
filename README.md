@@ -60,6 +60,17 @@ sniper-backtest data/EURUSD_5m.csv \
   --summary-out backtest-results/eurusd_summary.json
 ```
 
+For parameter work, use a chronological train/test split so later candles stay out-of-sample:
+
+```bash
+sniper-split-backtest data/USDJPY_5m.csv \
+  --train-fraction 0.8 \
+  --entry-start-time 09:00 \
+  --entry-end-time 19:00 \
+  --entry-timezone Europe/London \
+  --out-dir backtest-results/usdjpy_split_80_20
+```
+
 The CSV needs `timestamp`, `open`, `high`, `low`, and `close` columns. `volume` and `spread` are optional.
 
 The backtester uses the same indicator entry logic as the live bot:

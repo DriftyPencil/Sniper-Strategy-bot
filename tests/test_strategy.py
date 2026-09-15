@@ -31,8 +31,11 @@ def config() -> StrategyConfig:
         stop_atr_multiple=1.5,
         target_multiples=[1, 2, 3, 4, 5],
         take_profit_allocations=[0.5, 0.25, 0.25],
+        break_even_after_tp1=True,
         broker_target_index=2,
         default_size=10,
+        spread_bet_price_decimals=1,
+        spread_bet_point_size=0.1,
         starting_balance=10000,
     )
 
